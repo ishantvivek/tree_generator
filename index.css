@@ -1,0 +1,151 @@
+:root {
+    --border-type-solid: 1px dotted black;
+}
+
+.main {
+    width: max-content;
+}
+
+.main * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* For vertical view of tree */
+.main-vertical li {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.main-vertical ul li span {
+    border: var(--border-type-solid);
+    padding: 10px !important;
+    position: relative;
+    margin: 2em !important;
+}
+
+.main-vertical ul li span::after {
+    content: '';
+    position: absolute;
+    width: 2.1em;
+    top: 50%;
+    left: 100%;
+    border-top: var(--border-type-solid);
+}
+
+.main-vertical ul li span::before {
+    content: '';
+    position: absolute;
+    width: 2em;
+    top: 50%;
+    right: 100%;
+    border-top: var(--border-type-solid);
+}
+
+.main-vertical ul li span:only-child::after,
+.main-vertical > ul > li > span::before,
+.main-vertical > ul > li li:only-child::before {
+    display: none;
+}
+
+.main-vertical > ul > li li {
+    position: relative;
+}
+
+.main-vertical > ul > li li::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    border-right: var(--border-type-solid);
+}
+
+.main-vertical > ul > li li:first-child::before {
+    top: 50%;
+    max-height: 50%;
+}
+
+.main-vertical > ul > li li:last-child::before {
+    bottom: 50%;
+    max-height: 50%;
+}
+
+/* For horizontal view of tree */
+.main-horizontal ul {
+    display: inline-flex;
+}
+
+.main-horizontal li {
+    display: flex;
+    gap: 5em;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.main-horizontal ul li span {
+    border: var(--border-type-solid);
+    padding: 10px !important;
+    position: relative;
+    margin: 0 10px !important;
+}
+
+.main-horizontal > ul > li > span::after {
+    content: '';
+    position: absolute;
+    height: 2.5em;
+    width: 0px;
+    top: 100%;
+    left: 50%;
+    border-left: var(--border-type-solid);
+}
+
+.main-horizontal ul li span::after {
+    content: '';
+    position: absolute;
+    height: 2.6em;
+    width: 0px;
+    top: 100%;
+    left: 50%;
+    border-left: var(--border-type-solid);
+}
+
+.main-horizontal ul li span::before {
+    content: '';
+    position: absolute;
+    height: 2.5em;
+    width: 0px;
+    bottom: 100%;
+    left: 50%;
+    border-left: var(--border-type-solid);
+}
+
+.main-horizontal ul li span:only-child::after,
+.main-horizontal > ul > li > span::before,
+.main-horizontal > ul > li li:only-child::before {
+    display: none;
+}
+
+.main-horizontal > ul > li li {
+    position: relative;
+}
+
+.main-horizontal > ul > li li::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    top: -2.5em;
+    border-top: var(--border-type-solid);
+}
+
+.main-horizontal > ul > li li:first-child::before {
+    left: 50%;
+    max-width: 50%;
+}
+
+.main-horizontal > ul > li li:last-child::before {
+    right: 50%;
+    max-width: 50%;
+}
